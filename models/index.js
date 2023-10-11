@@ -35,16 +35,3 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
-
-module.exports = (sequelize) => {
-
-  class Article extends Sequelize.Model {}
-  Article.init({
-    title: Sequelize.STRING,
-    author: Sequelize.STRING,
-    body: Sequelize.TEXT
-
-  }, { sequelize })
-
-  return Article;
-};
