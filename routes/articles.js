@@ -44,9 +44,14 @@ router.post('/', asyncHandler(async (req, res) => {
 
 /* Edit article form. */
 router.get("/:id/edit", asyncHandler(async(req, res) => {
+<<<<<<< Updated upstream
   const article = await Article.findByPk(req.params.id);;
  
   if(article) {
+=======
+  const article = await Article.findByPk(req.params.id);
+  if (article) {
+>>>>>>> Stashed changes
     res.render("articles/edit", { article, title: "Edit Article" });
   } else {
     res.sendStatus(404);
@@ -56,11 +61,16 @@ router.get("/:id/edit", asyncHandler(async(req, res) => {
 /* GET individual article. */
 router.get("/:id", asyncHandler(async (req, res) => {
   const article = await Article.findByPk(req.params.id);
+<<<<<<< Updated upstream
   if(article) {
+=======
+  if (article) {
+>>>>>>> Stashed changes
     res.render("articles/show", { article: article, title: article.title }); 
   } else {
     res.sendStatus(404);
   };
+<<<<<<< Updated upstream
 }));
 
 /* POST create article. */
@@ -77,10 +87,13 @@ router.post('/', asyncHandler(async (req, res) => {
       throw error;
     }  
   };
+=======
+>>>>>>> Stashed changes
 }));
 
 /* Update an article. */
 router.post('/:id/edit', asyncHandler(async (req, res) => {
+<<<<<<< Updated upstream
   let article;
   try {
     article = await Article.findByPk(req.params.id);
@@ -101,12 +114,25 @@ router.post('/:id/edit', asyncHandler(async (req, res) => {
   }
  
   
+=======
+  const article = await Article.findByPk(req.params.id);
+  if (article) {
+    await article.update(req.body);
+    res.redirect("/articles/" + article.id);
+  } else {
+    res.sendStatus(404);
+  };
+>>>>>>> Stashed changes
 }));
 
 /* Delete article form. */
 router.get("/:id/delete", asyncHandler(async (req, res) => {
   const article = await Article.findByPk(req.params.id);
+<<<<<<< Updated upstream
   if(article) {
+=======
+  if (article) {
+>>>>>>> Stashed changes
     res.render("articles/delete", { article, title: "Delete Article" });
   } else {
     res.sendStatus(404);
@@ -116,7 +142,11 @@ router.get("/:id/delete", asyncHandler(async (req, res) => {
 /* Delete individual article. */
 router.post('/:id/delete', asyncHandler(async (req ,res) => {
   const article = await Article.findByPk(req.params.id);
+<<<<<<< Updated upstream
   if(article) {
+=======
+  if (article) {
+>>>>>>> Stashed changes
     await article.destroy();
     res.redirect("/articles");
   } else {
