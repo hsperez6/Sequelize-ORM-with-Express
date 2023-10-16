@@ -44,14 +44,9 @@ router.post('/', asyncHandler(async (req, res) => {
 
 /* Edit article form. */
 router.get("/:id/edit", asyncHandler(async(req, res) => {
-<<<<<<< Updated upstream
-  const article = await Article.findByPk(req.params.id);;
- 
-  if(article) {
-=======
   const article = await Article.findByPk(req.params.id);
+  
   if (article) {
->>>>>>> Stashed changes
     res.render("articles/edit", { article, title: "Edit Article" });
   } else {
     res.sendStatus(404);
